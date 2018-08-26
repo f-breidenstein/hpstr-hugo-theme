@@ -55,7 +55,11 @@
     {{ end }}
   </header>
   <div class="entry-content">
-    {{ .Content }}
+    {{ if (.Site.Params.show_summary | default false)}}
+      {{ .Summary }}
+    {{ else }}
+      {{ .Content }}
+    {{ end }}
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 {{ end }}
